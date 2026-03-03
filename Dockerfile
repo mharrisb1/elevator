@@ -15,15 +15,16 @@ WORKDIR /home/app
 ENV UV_PYTHON_PREFERENCE=only-system
 
 COPY pyproject.toml .
-COPY src/ src/
-RUN uv sync --no-dev
 
 FROM base AS app
-ENV UV_NO_DEV=1
+RUN uv sync --no-dev
+COPY src/ src/
 ENTRYPOINT ["uv", "run", "elevator"]
 
 FROM base AS dev
 RUN uv sync --only-dev
+COPY src/ src/
 COPY tests/ tests/
+COPY .coveragerc .
 
 ENTRYPOINT ["uv", "run"]
