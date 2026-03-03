@@ -1,7 +1,3 @@
-import csv
-import io
-
-
 def validate_floor(n: int) -> int:
     """
     Validate floor number
@@ -36,6 +32,4 @@ def parse_csv(s: str) -> list[int]:
         ValueError: If element in stream cannot be casted to int
         ValueError: If element in stream is not a valid floor number (greater than zero)
     """
-    stream = io.StringIO(s)
-    reader = csv.reader(stream, delimiter=",")
-    return [validate_floor(int(val)) for row in reader for val in row]
+    return [validate_floor(int(floor)) for floor in s.split(",")]
