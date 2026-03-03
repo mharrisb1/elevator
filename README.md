@@ -56,7 +56,7 @@ Domain model:
 
 ### Controller
 
-The controller uses a strategty pattern to easily allow changes to:
+The controller uses a strategy pattern to easily allow changes to:
 
 - Scheduling/ordering strategy
 - Cost model for measurement logic
