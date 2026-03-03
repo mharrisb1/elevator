@@ -1,4 +1,5 @@
 import argparse
+from collections.abc import Callable
 from enum import StrEnum
 
 from elevator.controller import Controller
@@ -8,6 +9,7 @@ from elevator.strategy import (
     DirectionAwareNearestFloorStrategy,
     FifoStrategy,
     NearestFloorStrategy,
+    Strategy,
 )
 from elevator.utils import parse_csv
 
@@ -19,11 +21,11 @@ class StrategyOption(StrEnum):
     DIRD = "dirdown"
 
 
-STRATMAP = {
-    StrategyOption.FIFO: FifoStrategy(),
-    StrategyOption.NEAR: NearestFloorStrategy(),
-    StrategyOption.DIRU: DirectionAwareNearestFloorStrategy(Direction.UP),
-    StrategyOption.DIRD: DirectionAwareNearestFloorStrategy(Direction.DOWN),
+STRATMAP: dict[StrategyOption, Callable[[], Strategy]] = {
+    StrategyOption.FIFO: FifoStrategy,
+    StrategyOption.NEAR: NearestFloorStrategy,
+    StrategyOption.DIRU: lambda: DirectionAwareNearestFloorStrategy(Direction.UP),
+    StrategyOption.DIRD: lambda: DirectionAwareNearestFloorStrategy(Direction.DOWN),
 }
 
 
@@ -41,7 +43,7 @@ def run(argv: list[str] | None = None):
 
     args = parser.parse_args(argv)
 
-    strategy = STRATMAP[args.strategy]
+    strategy = STRATMAP[args.strategy]()
     cost_model = FixedTimeCostModel()
 
     start = args.start
