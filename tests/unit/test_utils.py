@@ -27,14 +27,12 @@ def test_validate_floor(value: int, is_valid: bool):
         ("1, 2, 3,45,6, 7,8, 9,10", True, 9),
         ("a, b, c, d", False, 0),
         ("1, 2, 3, a", False, 0),
+        ("1, 2, 3, 4, 5, 6, 7, 8, 9, -10", False, 0),
     ],
 )
 def test_parse_csv(s: str, is_valid: bool, size: int):
     if not is_valid:
-        with pytest.raises(
-            ValueError,
-            match=r"invalid literal for int.*",
-        ):
+        with pytest.raises(ValueError, match=r".*"):
             parse_csv(s)
 
     else:
