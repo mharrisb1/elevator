@@ -5,7 +5,7 @@ from elevator.elevator import Elevator
 from elevator.strategy import (
     Direction,
     DirectionAwareNearestFloorStrategy,
-    FifoStragey,
+    FifoStrategy,
     NearestFloorStrategy,
     Strategy,
 )
@@ -29,7 +29,7 @@ def test_elevator_invalid_starting_floor():
         (
             12,
             [2, 9, 1, 32],
-            FifoStragey(),
+            FifoStrategy(),
             FixedTimeCostModel(),
             560,
             [12, 2, 9, 1, 32],
@@ -37,7 +37,7 @@ def test_elevator_invalid_starting_floor():
         (
             12,
             [2, 9, 9, 9, 9, 1, 32],
-            FifoStragey(),
+            FifoStrategy(),
             FixedTimeCostModel(),
             560,
             [12, 2, 9, 1, 32],

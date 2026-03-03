@@ -12,7 +12,7 @@ class Strategy(Protocol):
         ...
 
 
-class FifoStragey(Strategy):
+class FifoStrategy(Strategy):
     def pick(self, current: int, remaining: list[int]) -> int:  # noqa: ARG002, PLR6301
         """Returns next floor in FIFO order"""
         return remaining[0]

@@ -5,7 +5,7 @@ from elevator.cost_model import CostModel, FixedTimeCostModel
 from elevator.strategy import (
     Direction,
     DirectionAwareNearestFloorStrategy,
-    FifoStragey,
+    FifoStrategy,
     NearestFloorStrategy,
     Strategy,
 )
@@ -24,7 +24,7 @@ from elevator.strategy import (
         (
             12,
             [2, 9, 1, 32],
-            FifoStragey(),
+            FifoStrategy(),
             FixedTimeCostModel(),
             560,
             [12, 2, 9, 1, 32],
@@ -32,7 +32,7 @@ from elevator.strategy import (
         (
             12,
             [2, 9, 9, 9, 9, 1, 32],
-            FifoStragey(),
+            FifoStrategy(),
             FixedTimeCostModel(),
             560,
             [12, 2, 9, 1, 32],

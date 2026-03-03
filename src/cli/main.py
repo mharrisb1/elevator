@@ -6,7 +6,7 @@ from elevator.cost_model import FixedTimeCostModel
 from elevator.strategy import (
     Direction,
     DirectionAwareNearestFloorStrategy,
-    FifoStragey,
+    FifoStrategy,
     NearestFloorStrategy,
 )
 from elevator.utils import parse_csv, validate_floor
@@ -20,7 +20,7 @@ class StrategyOption(StrEnum):
 
 
 STRATMAP = {
-    StrategyOption.FIFO: FifoStragey(),
+    StrategyOption.FIFO: FifoStrategy(),
     StrategyOption.NEAR: NearestFloorStrategy(),
     StrategyOption.DIRU: DirectionAwareNearestFloorStrategy(Direction.UP),
     StrategyOption.DIRD: DirectionAwareNearestFloorStrategy(Direction.DOWN),

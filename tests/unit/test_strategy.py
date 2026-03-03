@@ -3,7 +3,7 @@ import pytest
 from elevator.strategy import (
     Direction,
     DirectionAwareNearestFloorStrategy,
-    FifoStragey,
+    FifoStrategy,
     NearestFloorStrategy,
 )
 
@@ -16,7 +16,7 @@ from elevator.strategy import (
     ],
 )
 def test_fifo_strategy(current: int, remaining: list[int], expected: int):
-    next_floor = FifoStragey().pick(current, remaining)
+    next_floor = FifoStrategy().pick(current, remaining)
     assert next_floor == expected
 
 
