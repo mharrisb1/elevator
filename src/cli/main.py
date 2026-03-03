@@ -9,7 +9,7 @@ from elevator.strategy import (
     FifoStrategy,
     NearestFloorStrategy,
 )
-from elevator.utils import parse_csv, validate_floor
+from elevator.utils import parse_csv
 
 
 class StrategyOption(StrEnum):
@@ -44,7 +44,7 @@ def run(argv: list[str] | None = None):
     strategy = STRATMAP[args.strategy]
     cost_model = FixedTimeCostModel()
 
-    start = validate_floor(args.start)
+    start = args.start
     floors = parse_csv(args.floors)
 
     controller = Controller(strategy, cost_model)
