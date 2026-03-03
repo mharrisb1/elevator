@@ -15,6 +15,7 @@ WORKDIR /home/app
 ENV UV_PYTHON_PREFERENCE=only-system
 
 COPY pyproject.toml .
+COPY uv.lock .
 
 FROM base AS app
 COPY src/ src/

@@ -9,8 +9,5 @@ wheels/
 # Virtual environments
 .venv
 
-# uv artifacts
-uv.lock
-
 # Pytest
 .coverage
