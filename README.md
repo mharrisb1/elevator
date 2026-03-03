@@ -1,5 +1,19 @@
 # Elevator System Design
 
+<!--toc:start-->
+
+- [Elevator System Design](#elevator-system-design)
+  - [Requirements](#requirements)
+  - [Design](#design)
+    - [Controller](#controller)
+    - [Strategy](#strategy)
+    - [Cost Model](#cost-model)
+    - [Elevator](#elevator)
+    - [Full Overview](#full-overview)
+  - [Testing](#testing)
+  - [Usage](#usage)
+  <!--toc:end-->
+
 Simple elevator system built to be fairly extendable under changing requirements.
 
 ## Requirements
