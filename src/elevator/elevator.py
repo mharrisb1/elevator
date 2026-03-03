@@ -1,5 +1,3 @@
-import copy
-
 from .cost_model import CostModel
 from .result import Result
 from .strategy import Strategy
@@ -35,7 +33,7 @@ class Elevator:
         visited = [self._floor]
         total_cost = 0
         current = self._floor
-        remaining = copy.deepcopy(floors)
+        remaining = floors.copy()
 
         while remaining:
             next_floor = strategy.pick(current, remaining)
