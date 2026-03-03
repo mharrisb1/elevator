@@ -1,0 +1,69 @@
+[project]
+name = "elevator"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = []
+
+[project.scripts]
+elevator = "elevator:main"
+
+[build-system]
+requires = ["uv_build>=0.10.7,<0.11.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+  "pytest-cov>=7.0.0",
+  "pytest>=9.0.2",
+  "ruff>=0.15.4",
+  "ty>=0.0.20",
+]
+
+[tool.pytest]
+addopts = ["-vs", "--cov=src/elevator", "--cov-fail-under=100"]
+testpaths = ["tests"]
+
+[tool.ruff.lint]
+preview = true
+select = [
+  "A",
+  "B",
+  "BLE",
+  "ISC",
+  "COM",
+  "C4",
+  "DTZ",
+  "EM",
+  "ICN",
+  "PIE",
+  "PYI",
+  "PT",
+  "Q",
+  "RSE",
+  "RET",
+  "SLF",
+  "SIM",
+  "SLOT",
+  "TID",
+  "ARG",
+  "PTH",
+  "FLY",
+  "I",
+  "C90",
+  "N",
+  "PERF",
+  "E",
+  "W",
+  "F",
+  "PL",
+  "UP",
+  "FURB",
+  "RUF",
+  "TRY",
+]
+ignore = ["RUF067"]
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+pythonVersion = "3.10"
