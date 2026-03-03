@@ -66,7 +66,7 @@ I could have avoided the controller layer and pushed down some of the config han
 ```mermaid
 classDiagram
 
-class Strategy
+class Controller
     <<Service>> Controller
     Controller: - Strategy _strategy
     Controller: - CostModel _cost_model
@@ -136,8 +136,8 @@ classDiagram
 
 ### Full Overview
 
-```classDiagram
-
+```mermaid
+classDiagram
 
 Controller --* Strategy
 Controller --* CostModel
