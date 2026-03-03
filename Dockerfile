@@ -17,9 +17,9 @@ ENV UV_PYTHON_PREFERENCE=only-system
 COPY pyproject.toml .
 
 FROM base AS app
-RUN uv sync --no-dev
 COPY src/ src/
-ENTRYPOINT ["uv", "run", "elevator"]
+RUN uv sync --no-dev
+ENTRYPOINT ["uv", "run", "--no-dev", "elevator"]
 
 FROM base AS dev
 RUN uv sync --only-dev
