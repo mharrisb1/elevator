@@ -176,8 +176,8 @@ All pytest runs include code coverage calculations with a high passing threshold
 I've added a Dockerfile to containerize this application to avoid issues with dependencies and portability as well as to make it closer to a real-world application. To run the app:
 
 ```sh
-docker build . -t elevator:latest --target app
-docker run --rm elevator:latest 12 2,9,1,32
+docker build . -t elevator --target app -q > /dev/null
+docker run --rm elevator 12 2,9,1,32
 ```
 
 To explore the full CLI API you can run:
