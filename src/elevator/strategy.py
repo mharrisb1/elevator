@@ -39,7 +39,7 @@ class DirectionAwareNearestFloorStrategy(Strategy):
 
     def pick(self, current: int, remaining: list[int]) -> int:
         """
-        Returns the closes floor in the direction already going.
+        Returns the closest floor in the direction already going.
         If no more floors are left in current direction then direction
         changed
         """
