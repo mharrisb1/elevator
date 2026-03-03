@@ -50,4 +50,4 @@ def run(argv: list[str] | None = None):
     controller = Controller(strategy, cost_model)
     result = controller.dispatch(start, floors)
 
-    print(result.total_cost, result.visited)
+    print(result.total_cost, ",".join([str(f) for f in result.visited]))
