@@ -2,7 +2,13 @@ import pytest
 
 from elevator.cost_model import CostModel, FixedTimeCostModel
 from elevator.elevator import Elevator
-from elevator.strategy import FifoStragey, Strategy
+from elevator.strategy import (
+    Direction,
+    DirectionAwareNearestFloorStrategy,
+    FifoStragey,
+    NearestFloorStrategy,
+    Strategy,
+)
 
 
 def test_elevator_invalid_starting_floor():
@@ -35,6 +41,46 @@ def test_elevator_invalid_starting_floor():
             FixedTimeCostModel(),
             560,
             [12, 2, 9, 1, 32],
+        ),
+        (
+            12,
+            [2, 9, 1, 32],
+            NearestFloorStrategy(),
+            FixedTimeCostModel(),
+            420,
+            [12, 9, 2, 1, 32],
+        ),
+        (
+            12,
+            [2, 9, 9, 9, 9, 9, 1, 32],
+            NearestFloorStrategy(),
+            FixedTimeCostModel(),
+            420,
+            [12, 9, 2, 1, 32],
+        ),
+        (
+            12,
+            [2, 9, 1, 32],
+            DirectionAwareNearestFloorStrategy(Direction.UP),
+            FixedTimeCostModel(),
+            510,
+            [12, 32, 9, 2, 1],
+        ),
+        (
+            12,
+            [2, 9, 9, 9, 9, 9, 1, 32],
+            DirectionAwareNearestFloorStrategy(Direction.UP),
+            FixedTimeCostModel(),
+            590,
+            [12, 32, 9, 2, 1, 9],
+        ),
+        (
+            12,
+            [2, 9, 1, 32],
+            DirectionAwareNearestFloorStrategy(Direction.DOWN),
+            FixedTimeCostModel(),
+            420,
+            [12, 9, 2, 1, 32],
         ),
     ],
 )
