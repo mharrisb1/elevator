@@ -169,6 +169,8 @@ chmod +x -R scripts
 
 I created this script as a bare bones example of a potential CI pipeline that could be stood up in front of merges to trunk.
 
+All pytest runs include code coverage calculations with a high passing threshold of 100%.
+
 ## Usage
 
 I've added a Dockerfile to containerize this application to avoid issues with dependencies and portability as well as to make it closer to a real-world application. To run the app:
