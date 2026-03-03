@@ -43,11 +43,9 @@ class DirectionAwareNearestFloorStrategy(Strategy):
         If no more floors are left in current direction then direction
         changed
         """
-        ahead = [f for f in remaining if (f - current) * self._direction.value > 0]
+        ahead = [f for f in remaining if (f - current) * self._direction.value >= 0]
         if not ahead:
             self._direction = self._direction.toggle()
-            ahead = [f for f in remaining if (f - current) * self._direction.value > 0]
+            ahead = [f for f in remaining if (f - current) * self._direction.value >= 0]
 
-        if not ahead:
-            return NearestFloorStrategy().pick(current, remaining)
         return NearestFloorStrategy().pick(current, ahead)

@@ -66,8 +66,8 @@ from elevator.strategy import (
             [2, 9, 9, 9, 9, 9, 1, 32],
             DirectionAwareNearestFloorStrategy(Direction.UP),
             FixedTimeCostModel(),
-            590,
-            [12, 32, 9, 2, 1, 9],
+            510,
+            [12, 32, 9, 2, 1],
         ),
         (
             12,
