@@ -10,7 +10,7 @@ def test_cli_run_invalid_start(argv: list[str]):
 
 
 @pytest.mark.parametrize(
-    ("argv", "exptect_out"),
+    ("argv", "expected_out"),
     [
         (
             ["12", "2,9,1,32"],
@@ -34,8 +34,8 @@ def test_cli_run_invalid_start(argv: list[str]):
         ),
     ],
 )
-def test_cli_run(argv: list[str], exptect_out: str, capsys):
+def test_cli_run(argv: list[str], expected_out: str, capsys):
     run(argv)
 
     captured = capsys.readouterr()
-    assert captured.out == exptect_out
+    assert captured.out == expected_out
